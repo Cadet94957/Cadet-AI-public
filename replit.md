@@ -93,7 +93,6 @@ Cadet is a comprehensive employee onboarding platform designed to streamline the
 ### Database Management
 - **Migrations**: Drizzle Kit for schema changes
 - **Connection**: Neon serverless with connection pooling
-- **Environment Variables**: DATABASE_URL and OPENAI_API_KEY required
 
 ## Recent Changes
 - October 4, 2025: Implemented comprehensive 10-step Day 1 onboarding flow

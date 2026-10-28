@@ -26,7 +26,6 @@ see the [README](README.md).
 ### Prerequisites
 - Node.js 18+ 
 - PostgreSQL database
-- OpenAI API key
 
 ### Installation
 
@@ -41,17 +40,12 @@ cd Cadet-AI
 npm install
 ```
 
-3. Set up environment variables: copy `.env.example` to `.env` and fill in at
-   least `DATABASE_URL` and `OPENAI_API_KEY`. Everything else (multi-tenant
-   Supabase, Microsoft/Slack/Google OAuth) is optional and documented in the
-   file.
-
-4. Set up the database:
+3. Set up the database:
 ```bash
 npm run db:push
 ```
 
-5. Start the development server:
+4. Start the development server:
 ```bash
 npm run dev
 ```
@@ -109,7 +103,7 @@ The application will be available at `http://localhost:5000`
    that plans which knowledge tools to use per question (org graph, admin
    onboarding config, or vector search) before answering.
 5. **Single-tenant by default** — the multi-tenant Supabase registry
-   (`TENANT_SUPABASE_JSON`) is optional; unregistered orgIds transparently
+   is optional; unregistered orgIds transparently
    fall back to the local Postgres database (tasks, tickets, buddy
    assignments, and analytics events live in local tables).
 
@@ -119,17 +113,9 @@ The application will be available at `http://localhost:5000`
 - `GET /api/manager/recent-questions` — the questions new hires are asking
   the AI, a direct signal of onboarding knowledge gaps.
 
-### Authentication
-- `POST /api/register` / `POST /api/login` — real accounts with scrypt-hashed
-  passwords (no external auth service required).
-- Test logins (`/api/test-login`, `/api/admin-login`,
-  `/api/completed-employee-login`) remain for demos; the shared test user
-  restarts onboarding on each login.
-
 ### User Management
 - Employee and manager role differentiation
 - Automatic role-based routing
-- User switching functionality for testing
 
 ## Development
 
@@ -148,7 +134,3 @@ This project uses Drizzle ORM. Schema changes should be made in `shared/schema.t
 The application is designed to work with:
 - Replit (primary deployment platform)
 - Any Node.js hosting service with PostgreSQL support
-
-Environment variables required:
-- `DATABASE_URL`
-- `OPENAI_API_KEY`
